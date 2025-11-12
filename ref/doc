@@ -10,6 +10,7 @@ set up a sever. (following specific rules.)
 Forbidden:
 to install X.org (any graphics servers)
 
+
 [0]
 Choose:
 Debian or Rocky. (latest stable version)
@@ -19,6 +20,7 @@ Don't have to set up KDump in Rocky.
 SELinux must be running at startup in Rocky.
 AppArmor must be running at startup in Debian.
 
+
 [1]
 Create:
 Encrypted partitions(At least 2)
@@ -26,8 +28,8 @@ Using LVM
 
 You will be asked to explain about the operating system you chose.
 You should know the differences between aptitude and apt, or what SELinux or AppAmor.
-
 Understand what you use!
+
 
 [2]
 Launch:
@@ -39,7 +41,115 @@ Must not be possible to connect using SSH as root.
 Use of SSH will be tested by setting up a new account.
 Understand how it works.
 
+
 [3]
+Configure:
+OS
+With UFW
+
+Leave:
+port 4242 open (only)
+
+Determine:
+Size for each partition
+To ensure proper operation
+To avoid unnecessary disk usage
+
+Your firewall must be active when you launch your VM.
+You have to use firewall instead of UFW for Rocky.
+
+
+[4]
+Set:
+Hostname your login ending with 42 = keitotak42
+Modify this hostname during your evaluation.
+
+Implement:
+A strong password policy.
+
+Install and Configure:
+sudo (following strict rule).
+
+Add:
+a user
+with your login as username
+Belonging to the user42 and sudo groups.
+
+You will have to create a new user and assign it to a group.
+
+
+[5]
+Set up:
+a strong password policy
+
+rule:
+Your passwd has to expire every 30 days.
+The minimum nb of days allowed before he modification will be set to 2.
+The user has to recieve a warning message 7 days before their passwd expires.
+Passwd must be at least 10 chars long.
+Passwd must contain an uppercase letter, a lowercase, and a number.
+Passwd must not contain more than 3 consecutive indentical chars.
+Passwd must not include the name of the user.
+(DOES NOT APPLY TO THE ROOT)
+Passwd must have at least 7 chars that are not part of the former password.
+
+Of course, yoru root passwd has to comply with this policy(?).
+
+
+**
+After:
+Setting up your configuration files
+You will have to change all the passwds of the accounts present on the VM,
+including the root account.
+
+**
+
+
+[6]
+Set up:
+a strong configuration for
+sudo group
+
+requirements:
+Authentication using sudo
+	has to be limited to 3 attempts in the event of an incorrect passwd.
+A custom message has to be displayed
+	if an error due to a wrong passwd occurs when using sudo.
+Each action using sudo has to be archived, both inputs and outputs.
+	The log file has to be saved in the /var/log/sudo/ folder.
+The TTY mode has to be enabled
+	for security reasons.
+The paths that can be used by sudo must be restricted.
+	Ex) /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin
+
+
+[7]
+Create:
+monitoring.sg
+a simple script
+must be developed in bash.
+
+The script will display some info on all terminals and every 10 minutes (take a look at wall).
+The banner is optional.
+No error must be visible.
+
+info:
+Architecture of OS and kernel version
+Number of physical processors
+Number of virtual processors
+Current available RAM on server and utilization rate as a percentage.
+Current available storage on server and utilization rate as a percentage.
+Current utilization rate of processors as a percentage.
+Date and time of the last reboot.
+Whether LVM is active or not.
+Num of active connections.
+Num of usrs using the server.
+IPv4 address of server and MAC(Media Access Control) address.
+Num of commands executed with the sudo program.
+
+You will be asked to explain hwo this script works.
+You will also have to interrupt it without modifying it.
+Take a look at cron.
 
 
 
