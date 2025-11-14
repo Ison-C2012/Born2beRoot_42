@@ -4,5 +4,16 @@ Then, I changed the number of processor from 1 to 2.
 It doesn't occur.
 Why?
 
+sda:sdb:sdc
+lvm sd means hard disk
+sda: first hard disk
+sdb: second hard disk
+...
+
+sda5_crypt: maybe encrypted partition
+|-host--vg-root
+|-host--vg-var
+|-host--vg-swap_1
+ -host--vg-srv
 
 

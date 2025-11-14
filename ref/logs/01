@@ -1,0 +1,57 @@
+#select install(choose cui)
+#select language
+#select location
+#select locale
+#enter hostname
+#enter domain name
+#enter root password
+#re-enter
+#enter username
+#select username
+#enter user password
+#select the way of partitions
+#	Guided
+#		use entire disk
+#		use entire disk and set up LVM
+#		use entire disk and set up encrypted LVM
+#	Manual
+#(choose use encrypted LVM following Guide, no way manual)
+#select partitioning scheme
+#	all files in one partition
+#	separate /home partition
+#	separate /home, /var, and /tmp partitions
+#	separate /var and /srv, swap < 1GB (for servers)[chose]
+#	small-disk (< 10GB) partitioning scheme
+#Y/N write the partitioning scheme to disks(yes)
+#erasing data on SCSI3 (0, 0, 0), partition #5 (sda)(no canceling)
+#enter Encryption passphrase(logicalvolumemanager)
+#set amount of volume group to use for guided partitioning(50%=10.2GB)
+#modify partition(no modifying. Finish partitioning)
+#scan extra installation media(no)
+#debian archive mirror country(japan)
+#Debian archive mirror(deb.debian.org)
+#HTTP proxy infomation(blank)
+#Y/N participate in the package usage survey(no)
+#Choose software to install
+#	Debian desktop environment
+#	Xfce
+#	GNOME Flashback
+#	KDE Plsma
+#	Cinnamon
+#	MATE
+#	LXDE
+#	LXQt
+#	web server
+#	SSH server[checked]
+#	standard system utillities
+#	Choose a Debian Blend for installation
+#install the GRUB boot loader to your primary drive(no)
+#device for boot loader installation(/dev/sda)
+#finishing the installation...
+#Installation complete
+#make sure to remove the installation media, so taht you boot into the new system rather than restarting the installation.
+#reboot
+#sda#5_phrase:***
+#debian login:
+#
+#logged in.
